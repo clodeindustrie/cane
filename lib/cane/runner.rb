@@ -2,6 +2,7 @@ require 'parallel'
 
 require 'cane/violation_formatter'
 require 'cane/json_formatter'
+require 'cane/emacs_formatter'
 
 module Cane
   def run(*args)
@@ -41,6 +42,8 @@ module Cane
     def formatter
       if opts[:json]
         JsonFormatter
+      elsif opts[:emacs]
+        EmacsFormatter
       else
         ViolationFormatter
       end
